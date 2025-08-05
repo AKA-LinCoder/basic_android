@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     tools:context=".demo.component.TextViewActivity">
 
     <TextView
@@ -11,6 +13,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
+        android:ellipsize="marquee"
+        android:maxLines="2"
+        android:textSize="20sp"
+        />
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这是一个跑马镫马镫马蹬马镫打扫打扫深爱的阿斯顿算大安德森撒 "
+        android:ellipsize="marquee"
+        android:maxLines="2"
+        android:textSize="20sp"
+        android:scrollHorizontally="true"
+        android:focusableInTouchMode="true"
+        android:singleLine="true"
         />
 
 </LinearLayout>
