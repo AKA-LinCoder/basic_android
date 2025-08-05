@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">待办</string>
     <string name="title">你好</string>
+    <string name="who_are_you">我是谁</string>
 </resources>

@@ -13,8 +13,8 @@
         android:theme="@style/Theme.BasicLeaning"
         tools:targetApi="31">
         <activity
-            android:name=".demo.component.TextViewActivity"
-            android:exported="true" >
+            android:name=".demo.component.ButtonActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,13 +22,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".demo.layout.FrameActivity"
+            android:name=".demo.component.TextViewActivity"
             android:exported="true">
 <!--            <intent-filter>-->
 <!--                <action android:name="android.intent.action.MAIN" />-->
 
 <!--                <category android:name="android.intent.category.LAUNCHER" />-->
 <!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".demo.layout.FrameActivity"
+            android:exported="true">
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".demo.layout.LinerLayoutDemoActivity"
