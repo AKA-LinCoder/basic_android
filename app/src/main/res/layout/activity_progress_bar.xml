@@ -33,4 +33,24 @@
         android:layout_height="30dp"
         android:checked="true"
         android:text="pick me"/>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="周一"/>
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="周二"/>
+
+    </RadioGroup>
+    <ToggleButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textOn="open"
+        android:textOff="close"
+        android:text="tap ,e"
+   />
 </LinearLayout>
