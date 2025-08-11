@@ -43,11 +43,32 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <Button
-            android:id="@+id/tapme"
+            android:id="@+id/tapme1"
             android:layout_width="200dp"
             android:layout_height="100dp"
-            android:onClick="click1"
             android:background="@drawable/custom_button_selector"
-            android:text="@string/who_are_you"/>
+            android:text="通过自定义内部类实现点击事件"/>
+        <Button
+            android:id="@+id/tapme2"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="@drawable/custom_button_selector"
+            android:text="通过匿名内部类实现点击事件"/>
+        <Button
+            android:id="@+id/tapme3"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="@drawable/custom_button_selector"
+            android:text="通过当前activity实现点击事件"/>
+
+        <!--
+            src 不会适配大小。background会适配大小
+        -->
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="@drawable/ic_launcher_foreground"
+            android:src="@drawable/ic_launcher_foreground"
+            />
     </LinearLayout>
 </LinearLayout>
