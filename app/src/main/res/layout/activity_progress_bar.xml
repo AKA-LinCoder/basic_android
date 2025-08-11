@@ -27,4 +27,10 @@
         android:layout_height="50dp"
         style="?android:attr/progressBarStyleHorizontal"
         />
+    <CheckBox
+        android:id="@+id/checkbox"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:checked="true"
+        android:text="pick me"/>
 </LinearLayout>

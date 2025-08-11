@@ -2,6 +2,8 @@ package com.echo.basicleaning.demo.component
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.RadioGroup.OnCheckedChangeListener
+import android.widget.Toast
 import com.echo.basicleaning.R
 import com.echo.basicleaning.databinding.ActivityProgressBarBinding
 
@@ -22,5 +24,16 @@ class ProgressBarActivity : AppCompatActivity() {
             }
             }
         }.start()
+
+        binding.checkbox.setOnCheckedChangeListener{ buttonView,isChecked ->
+
+            if (isChecked) {
+                // 勾选时执行
+                Toast.makeText(this, "已选中", Toast.LENGTH_SHORT).show()
+            } else {
+                // 取消勾选时执行
+                Toast.makeText(this, "取消选中", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 }

@@ -2,6 +2,9 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="ProgressBarActivity">
+        <State />
+      </entry>
       <entry key="TextViewActivity">
         <State />
       </entry>

@@ -36,6 +36,7 @@ class TextInputActivity : AppCompatActivity() {
                 binding.errorCheck.error = "手机格式不对"
             }else {
                 binding.errorCheck.error = null
+                binding.phoneEdit.text.toString()
             }
         }
     }
