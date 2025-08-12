@@ -3,6 +3,7 @@ package com.echo.basicleaning.demo.component
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.RadioGroup.OnCheckedChangeListener
+import android.widget.SeekBar
 import android.widget.Toast
 import com.echo.basicleaning.R
 import com.echo.basicleaning.databinding.ActivityProgressBarBinding
@@ -35,5 +36,20 @@ class ProgressBarActivity : AppCompatActivity() {
                 Toast.makeText(this, "取消选中", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.seekbar.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 }

@@ -53,4 +53,10 @@
         android:textOff="close"
         android:text="tap ,e"
    />
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:progress="30"/>
 </LinearLayout>
