@@ -3,6 +3,7 @@ package com.echo.basicleaning.demo.component
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -25,6 +26,11 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
         setContentView(binding.root)
         binding.button1.setOnClickListener(this)
         binding.button2.setOnClickListener(this)
+
+
+        //contextMenu
+        registerForContextMenu(binding.button3)
+
 //        setSupportActionBar(binding.t)
         Log.e("Tag","---------onCreate---------")
     }
@@ -98,6 +104,28 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
         }
 
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        menuInflater.inflate(R.menu.context,menu)
+    }
+
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.save ->{
+
+                Toast.makeText(this,"save",Toast.LENGTH_LONG).show()
+            }
+            R.id.more -> {
+                Toast.makeText(this,"more",Toast.LENGTH_LONG).show()
+            }
+        }
+        return super.onContextItemSelected(item)
     }
 
 
