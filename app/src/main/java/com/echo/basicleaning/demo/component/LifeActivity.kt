@@ -2,11 +2,77 @@ package com.echo.basicleaning.demo.component
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.View
 import com.echo.basicleaning.R
+import com.echo.basicleaning.databinding.ActivityLifeBinding
 
-class LifeActivity : AppCompatActivity() {
+class LifeActivity : AppCompatActivity(),View.OnClickListener {
+    lateinit var binding: ActivityLifeBinding
+
+    /***
+     * 1 正常启动：create->start->resume 正常退出：pause->stop->onDestroy
+     * 2 已经处于前台的activity，点击主页按钮离开当前activity：pause->stop,回到activity：restart->start->resume
+     * 3 activity不可操作(熄屏，打开了其他activity)，而应用被强行杀死，再回到activity时：create->start->resume
+     */
+    //创建
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_life)
+        binding = ActivityLifeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.button1.setOnClickListener(this)
+        binding.button2.setOnClickListener(this)
+        Log.e("Tag","---------onCreate---------")
     }
+    //启动
+    override fun onStart() {
+        super.onStart()
+        Log.e("Tag","---------onStart---------")
+    }
+
+    //恢复
+    override fun onResume() {
+        super.onResume()
+        Log.e("Tag","---------onResume---------")
+    }
+
+    //暂停
+    override fun onPause() {
+        super.onPause()
+        Log.e("Tag","---------onPause---------")
+    }
+
+    //停止
+    override fun onStop() {
+        super.onStop()
+        Log.e("Tag","---------onStop---------")
+    }
+
+    //销毁
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.e("Tag","---------onDestroy---------")
+    }
+
+    //重启
+    override fun onRestart() {
+        super.onRestart()
+        Log.e("Tag","---------onRestart---------")
+    }
+
+    override fun onClick(v: View) {
+        when(v.id){
+            R.id.button1->{
+                Log.e("Tag","---------我是button1---------")
+            }
+            R.id.button2->{
+                Log.e("Tag","---------我是button2---------")
+            }
+            R.id.button3->{
+                Log.e("Tag","---------我是button3---------")
+            }
+        }
+    }
+
+
 }
