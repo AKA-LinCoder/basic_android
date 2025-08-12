@@ -3,7 +3,10 @@ package com.echo.basicleaning.demo.component
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import com.echo.basicleaning.R
 import com.echo.basicleaning.databinding.ActivityLifeBinding
 
@@ -22,6 +25,7 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
         setContentView(binding.root)
         binding.button1.setOnClickListener(this)
         binding.button2.setOnClickListener(this)
+//        setSupportActionBar(binding.t)
         Log.e("Tag","---------onCreate---------")
     }
     //启动
@@ -72,6 +76,28 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
                 Log.e("Tag","---------我是button3---------")
             }
         }
+    }
+
+    ///创建optionMenu
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+
+        ///加载菜单资源
+        menuInflater.inflate(R.menu.option,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.save ->{
+
+                Toast.makeText(this,"save",Toast.LENGTH_LONG).show()
+            }
+            R.id.more -> {
+                Toast.makeText(this,"more",Toast.LENGTH_LONG).show()
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
     }
 
 
