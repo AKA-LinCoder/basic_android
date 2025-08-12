@@ -59,4 +59,9 @@
         android:layout_height="wrap_content"
         android:max="100"
         android:progress="30"/>
+    <Button
+        android:id="@+id/goButton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        />
 </LinearLayout>

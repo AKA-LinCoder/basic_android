@@ -13,8 +13,25 @@
         android:theme="@style/Theme.BasicLeaning"
         tools:targetApi="31">
         <activity
-            android:name=".demo.component.ProgressBarActivity"
+            android:name=".demo.component.LifeActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
+        已经有abc了，还想打开c
+        standard:栈模式 a,b,c->a,b,c,c
+        singleTop: 顶部复用 a,b,c ->a,b,c
+        singleTask a,b,c,d-> a,b,c，如果上=面还有其他的，就删除上面的
+        singleInstance 单例
+        -->
+        <activity
+            android:name=".demo.component.ProgressBarActivity"
+            android:exported="true"
+            android:launchMode="standard">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

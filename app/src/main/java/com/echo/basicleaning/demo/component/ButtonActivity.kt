@@ -26,6 +26,7 @@ public class ButtonActivity : AppCompatActivity() {
 
         binding.tapme2.setOnClickListener {
             Toast.makeText(this,"匿名内部类",Toast.LENGTH_LONG).show()
+            finish()
         }
 
     }
@@ -44,6 +45,7 @@ public class ButtonActivity : AppCompatActivity() {
     class MyClicker : View.OnClickListener{
         override fun onClick(v: View?) {
             Log.e("TAG","通过内部类监听对象的按钮")
+
         }
 
     }

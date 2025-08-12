@@ -1,7 +1,9 @@
 package com.echo.basicleaning.demo.component
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.RadioGroup.OnCheckedChangeListener
 import android.widget.SeekBar
 import android.widget.Toast
@@ -10,9 +12,11 @@ import com.echo.basicleaning.databinding.ActivityProgressBarBinding
 
 class ProgressBarActivity : AppCompatActivity() {
     lateinit var binding: ActivityProgressBarBinding
+    lateinit var myIntent: Intent
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProgressBarBinding.inflate(layoutInflater)
+        myIntent = Intent(this,ButtonActivity::class.java)
         setContentView(binding.root)
 
         Thread{
@@ -40,6 +44,7 @@ class ProgressBarActivity : AppCompatActivity() {
         binding.seekbar.setOnSeekBarChangeListener(object:SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 TODO("Not yet implemented")
+//                getString(R.string.app_name)
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {
@@ -51,5 +56,18 @@ class ProgressBarActivity : AppCompatActivity() {
             }
 
         })
+        binding.goButton.setText("前往")
+        binding.goButton.setOnClickListener ( object:View.OnClickListener{
+            override fun onClick(v: View) {
+                Toast.makeText(v.context,"123",Toast.LENGTH_LONG).show()
+
+                startActivity(myIntent)
+
+            }
+
+        } )
+//        binding.goButton.setOnClickListener {
+//            Toast.makeText(this,"dasdas",Toast.LENGTH_LONG).show()
+//        }
     }
 }
