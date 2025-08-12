@@ -30,6 +30,9 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
 
         //contextMenu
         registerForContextMenu(binding.button3)
+        //为按钮设置上下文操作模式
+        //1 实现接口
+        //2 在View的长按事件中启动上下文操作模式
 
 //        setSupportActionBar(binding.t)
         Log.e("Tag","---------onCreate---------")
