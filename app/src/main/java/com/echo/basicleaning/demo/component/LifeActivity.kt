@@ -3,11 +3,13 @@ package com.echo.basicleaning.demo.component
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.ActionMode
 import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView.SmoothScroller.Action
 import com.echo.basicleaning.R
 import com.echo.basicleaning.databinding.ActivityLifeBinding
 
@@ -29,13 +31,52 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
 
 
         //contextMenu
-        registerForContextMenu(binding.button3)
+//        registerForContextMenu(binding.button3)
         //为按钮设置上下文操作模式
         //1 实现接口
         //2 在View的长按事件中启动上下文操作模式
 
 //        setSupportActionBar(binding.t)
         Log.e("Tag","---------onCreate---------")
+
+
+
+        val  cb = object : ActionMode.Callback2(){
+            override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+
+                menuInflater.inflate(R.menu.context,menu)
+                return true
+            }
+
+            override fun onPrepareActionMode(mode: ActionMode?, menu: Menu?): Boolean {
+                return false
+            }
+
+            override fun onActionItemClicked(mode: ActionMode?, item: MenuItem): Boolean {
+                when(item.itemId){
+                    R.id.button1->{
+                        Log.e("Tag","---------我是button1---------")
+                    }
+                    R.id.button2->{
+                        Log.e("Tag","---------我是button2---------")
+                    }
+                    R.id.button3->{
+                        Log.e("Tag","---------我是button3---------")
+                    }
+                }
+                return true
+            }
+
+            override fun onDestroyActionMode(mode: ActionMode?) {
+                // 清空或释放资源（如果有）
+                Log.e("Tag", "ActionMode 已销毁")
+            }
+
+        }
+        binding.button3.setOnLongClickListener {
+            startActionMode(cb)
+            true
+        }
     }
     //启动
     override fun onStart() {
@@ -86,7 +127,6 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
             }
         }
     }
-
     ///创建optionMenu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
@@ -109,6 +149,7 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
         return super.onOptionsItemSelected(item)
     }
 
+    /**
     override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,
@@ -130,6 +171,8 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
         }
         return super.onContextItemSelected(item)
     }
+  **/
+
 
 
 }
