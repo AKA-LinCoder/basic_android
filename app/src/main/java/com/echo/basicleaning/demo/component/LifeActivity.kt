@@ -156,8 +156,11 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
     ///创建optionMenu
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-        ///加载菜单资源
+        ///加载菜单资源 通过xml方式
         menuInflater.inflate(R.menu.option,menu)
+        ///纯代码方式
+        menu?.add(1,11,1,"我是第一个菜单")
+        menu?.addSubMenu(1,111,1,"more")
         return true
     }
 
