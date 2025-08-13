@@ -8,6 +8,7 @@ import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView.SmoothScroller.Action
 import com.echo.basicleaning.R
@@ -77,6 +78,31 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
             startActionMode(cb)
             true
         }
+
+
+        binding.popButton.setOnClickListener {
+            //实例化popmenu
+            val  menu = PopupMenu(this,binding.popButton)
+            menu.menuInflater.inflate(R.menu.popup,menu.menu)
+            menu.setOnMenuItemClickListener { item->
+                when (item.itemId){
+                    R.id.item1 ->{
+                        true
+                    }
+
+                    else -> false
+                }
+            }
+            menu.setOnMenuItemClickListener(object : PopupMenu.OnMenuItemClickListener{
+                override fun onMenuItemClick(item: MenuItem?): Boolean {
+                    TODO("Not yet implemented")
+                }
+
+            })
+            menu.show()
+        }
+
+
     }
     //启动
     override fun onStart() {
