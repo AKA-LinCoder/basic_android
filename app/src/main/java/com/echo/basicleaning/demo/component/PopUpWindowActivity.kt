@@ -1,5 +1,7 @@
 package com.echo.basicleaning.demo.component
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.PopupWindow
@@ -22,8 +24,11 @@ class PopUpWindowActivity : AppCompatActivity() {
              * 2.弹窗的宽高
              * 3.
              */
-            val popupWindow = PopupWindow(v,600,400,true)
-            popupWindow.showAsDropDown(binding.popupwindow)
+            val popupWindow = PopupWindow(v,490,90,true)
+            popupWindow.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            //默认点击其他地方关闭
+//            popupWindow.isOutsideTouchable
+            popupWindow.showAsDropDown(binding.popupwindow,100,50)
         }
     }
 }
