@@ -4,7 +4,9 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.PopupWindow
+import android.widget.TextView
 import com.echo.basicleaning.R
 import com.echo.basicleaning.databinding.ActivityPopUpWindowBinding
 
@@ -29,6 +31,18 @@ class PopUpWindowActivity : AppCompatActivity() {
             //默认点击其他地方关闭
 //            popupWindow.isOutsideTouchable
             popupWindow.showAsDropDown(binding.popupwindow,100,50)
+            popupWindow.animationStyle.div(R.style.translate_anim)
+            v.findViewById<TextView>(R.id.choose).setOnClickListener {
+
+            }
+            v.findViewById<TextView>(R.id.selectAll).setOnClickListener {
+
+            }
+            v.findViewById<TextView>(R.id.copy).setOnClickListener {
+
+                Log.e("Tag","点击copy")
+                popupWindow.dismiss()
+            }
         }
     }
 }
