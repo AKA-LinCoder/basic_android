@@ -30,5 +30,17 @@
         android:layout_height="wrap_content"
         android:text="popButton"
         />
+    <Button
+        android:id="@+id/normal_dialog_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="普通对话框"
+        />
+    <Button
+        android:id="@+id/diy_dialog_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义对话框"
+        />
 
 </LinearLayout>

@@ -6,4 +6,9 @@
     </style>
 
     <style name="Theme.BasicLeaning" parent="Base.Theme.BasicLeaning" />
+    <style name="my" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+
+    </style>
 </resources>

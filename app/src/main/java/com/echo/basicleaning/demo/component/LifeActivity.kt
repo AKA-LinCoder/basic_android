@@ -1,5 +1,6 @@
 package com.echo.basicleaning.demo.component
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView.SmoothScroller.Action
 import com.echo.basicleaning.R
 import com.echo.basicleaning.databinding.ActivityLifeBinding
@@ -102,8 +104,29 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
             menu.show()
         }
 
+        binding.normalDialogBtn.setOnClickListener(this)
+        binding.diyDialogBtn.setOnClickListener(this)
+
+
+
+
 
     }
+
+
+    fun showNormalDialog(){
+        val dialog = AlertDialog.Builder(this).create()
+        dialog.setMessage("hhhh")
+        dialog.setTitle("jjj")
+        dialog.setButton(DialogInterface.BUTTON_POSITIVE,"确定",{
+            dia,which->run{
+                Log.e("TAG","dasdas")
+        }
+        })
+        dialog.show()
+    }
+
+
     //启动
     override fun onStart() {
         super.onStart()
@@ -151,6 +174,24 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
             R.id.button3->{
                 Log.e("Tag","---------我是button3---------")
             }
+            R.id.normal_dialog_btn->{
+                val builder = AlertDialog.Builder(this)
+                builder.setTitle("warnning").setMessage("确定退出么")
+                builder.setPositiveButton("sure") { dia, which ->
+
+                        finish()
+
+
+                }
+                builder.setNegativeButton("取消",null)
+                builder.show()
+//                builder.create().show()
+            }
+            R.id.diy_dialog_btn->{
+
+                val btn = LinDialog(context = this,R.style.my)
+                btn.show()
+            }
         }
     }
     ///创建optionMenu
@@ -167,7 +208,6 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.save ->{
-
                 Toast.makeText(this,"save",Toast.LENGTH_LONG).show()
             }
             R.id.more -> {
