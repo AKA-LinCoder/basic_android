@@ -13,14 +13,23 @@
         android:theme="@style/Theme.BasicLeaning"
         tools:targetApi="31">
         <activity
-            android:name=".demo.component.LifeActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
+            android:name=".demo.component.PopUpWindowActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".demo.component.LifeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
         </activity>
         <!--
         已经有abc了，还想打开c
