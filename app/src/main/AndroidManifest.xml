@@ -43,9 +43,9 @@
             android:exported="true"
             android:launchMode="standard">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.abc" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity

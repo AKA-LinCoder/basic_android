@@ -5,8 +5,11 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import android.widget.PopupWindow
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.echo.basicleaning.R
 import com.echo.basicleaning.databinding.ActivityPopUpWindowBinding
 
@@ -43,6 +46,18 @@ class PopUpWindowActivity : AppCompatActivity() {
                 Log.e("Tag","点击copy")
                 popupWindow.dismiss()
             }
+        }
+        binding.arrayAdapterBtn.setOnClickListener {
+            val  items = arrayListOf<String>("java","kotlin","mysql")
+//            val adapter = ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,items)
+            val adapter = ArrayAdapter(this,R.layout.array_item_layout,R.id.item_tx,items)
+            val  builder = AlertDialog.Builder(this)
+                .setTitle("请选择")
+                .setAdapter(adapter) { dia, which ->
+                    Toast.makeText(this, items[which], Toast.LENGTH_LONG).show()
+                    dia.dismiss()
+                }
+            builder.show()
         }
     }
 }

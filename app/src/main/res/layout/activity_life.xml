@@ -42,5 +42,17 @@
         android:layout_height="wrap_content"
         android:text="自定义对话框"
         />
+    <Button
+        android:id="@+id/open1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐式启动系统activity"
+        />
+    <Button
+        android:id="@+id/open2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="隐式启动本程序activity"
+        />
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.echo.basicleaning.demo.component
 
 import android.content.DialogInterface
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -20,9 +22,12 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var binding: ActivityLifeBinding
 
     /***
-     * 1 正常启动：create->start->resume 正常退出：pause->stop->onDestroy
+     * 1 正常启动：create->start->resume 正常退出：pause->stop->onDestroy再次启动 create-->
      * 2 已经处于前台的activity，点击主页按钮离开当前activity：pause->stop,回到activity：restart->start->resume
      * 3 activity不可操作(熄屏，打开了其他activity)，而应用被强行杀死，再回到activity时：create->start->resume
+     *
+     * 4 当打开其他activity时，当前pause->stop,当点击返回时，当前restart->start->resume
+     * 5 打开普通对话框，对生命 周期没有影响，如果是activity伪装成对话框，会影响
      */
     //创建
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,6 +46,18 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
 
 //        setSupportActionBar(binding.t)
         Log.e("Tag","---------onCreate---------")
+
+
+        binding.open1.setOnClickListener {
+
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.baidu.com"))
+            startActivity(intent)
+        }
+
+        binding.open2.setOnClickListener {
+            val intent = Intent("com.abc")
+            startActivity(intent)
+        }
 
 
 
@@ -188,6 +205,9 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
 //                builder.create().show()
             }
             R.id.diy_dialog_btn->{
+
+                val  intent = Intent(this,ButtonActivity::class.java)
+                startActivity(intent)
 
                 val btn = LinDialog(context = this,R.style.my)
                 btn.show()

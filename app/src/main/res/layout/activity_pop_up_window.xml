@@ -16,5 +16,14 @@
         android:text="Pop Up Window"
 
         />
+    <Button
+        android:id="@+id/arrayAdapterBtn"
+        android:gravity="center"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:text="arrayAdapterBtn"
+        android:layout_marginTop="20dp"
+
+        />
 
 </LinearLayout>
