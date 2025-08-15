@@ -13,6 +13,8 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView.SmoothScroller.Action
 import com.echo.basicleaning.R
@@ -20,6 +22,7 @@ import com.echo.basicleaning.databinding.ActivityLifeBinding
 
 class LifeActivity : AppCompatActivity(),View.OnClickListener {
     lateinit var binding: ActivityLifeBinding
+    private lateinit var launcher: ActivityResultLauncher<Intent>
 
     /***
      * 1 正常启动：create->start->resume 正常退出：pause->stop->onDestroy再次启动 create-->
@@ -36,6 +39,16 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
         setContentView(binding.root)
         binding.button1.setOnClickListener(this)
         binding.button2.setOnClickListener(this)
+        launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+                result->
+            if (result.resultCode == 100) {
+                val data: Intent? = result.data
+                // 处理返回数据
+                val returnedValue = data?.getStringExtra("key_name")
+                Log.e("TAG","这是收获的值"+returnedValue)
+                Toast.makeText(this, "返回的值: $returnedValue", Toast.LENGTH_SHORT).show()
+            }
+        }
 
 
         //contextMenu
@@ -58,6 +71,16 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
             val intent = Intent("com.abc")
             startActivity(intent)
         }
+
+        binding.open3.setOnClickListener {
+            Log.e("TAG","我的返回值呢")
+//            val intent = Intent("com.abc")
+            val intent = Intent(this,ProgressBarActivity::class.java)
+//            startActivity(intent)
+
+            launcher.launch(intent)
+        }
+
 
 
 

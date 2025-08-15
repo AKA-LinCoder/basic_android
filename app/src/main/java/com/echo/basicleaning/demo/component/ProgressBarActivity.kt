@@ -59,9 +59,13 @@ class ProgressBarActivity : AppCompatActivity() {
         binding.goButton.setText("前往")
         binding.goButton.setOnClickListener ( object:View.OnClickListener{
             override fun onClick(v: View) {
-                Toast.makeText(v.context,"123",Toast.LENGTH_LONG).show()
-
-                startActivity(myIntent)
+//                Toast.makeText(v.context,"123",Toast.LENGTH_LONG).show()
+//
+//                startActivity(myIntent)
+                val resultIntent = Intent()
+                resultIntent.putExtra("key_name","你好啊")
+                setResult(100,resultIntent)
+                finish()
 
             }
 

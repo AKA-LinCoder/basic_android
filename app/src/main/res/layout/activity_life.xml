@@ -54,5 +54,11 @@
         android:layout_height="wrap_content"
         android:text="隐式启动本程序activity"
         />
+    <Button
+        android:id="@+id/open3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="带结果返回activity"
+        />
 
 </LinearLayout>
