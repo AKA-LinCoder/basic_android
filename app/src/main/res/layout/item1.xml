@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_margin="5dp"
+        />
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="用户1"
+        android:textSize="26sp"
+        android:layout_toRightOf="@+id/profile"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="2024-10-24"
+        android:textSize="22sp"
+        android:layout_below="@+id/nickname"
+        android:layout_toRightOf="@+id/profile"/>
+
+</RelativeLayout>
