@@ -28,6 +28,7 @@ class MyAdapter(
         return position.toLong()
     }
 
+    //每个视图出现时都会执行
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view = LayoutInflater.from(context).inflate(R.layout.item1,null)
         val stu = studentList[position]

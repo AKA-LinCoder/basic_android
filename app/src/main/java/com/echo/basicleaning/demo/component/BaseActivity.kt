@@ -2,6 +2,7 @@ package com.echo.basicleaning.demo.component
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AbsListView
 import android.widget.ListView
 import com.echo.basicleaning.R
 import com.echo.basicleaning.databinding.ActivityBaseBinding
@@ -17,7 +18,12 @@ class BaseActivity : AppCompatActivity() {
         initDate()
         val  adapter = MyAdapter(this,studentList)
         binding.buttonAdd.setOnClickListener {
-
+            val stu = Student("tom",85,(78*100).toString())
+            studentList.add(stu)
+            //通知适配器
+            adapter.notifyDataSetChanged()
+            //设置自动显示
+            binding.listView3.transcriptMode = AbsListView.TRANSCRIPT_MODE_ALWAYS_SCROLL
         }
         binding.listView3.adapter = adapter
     }
