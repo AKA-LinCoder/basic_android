@@ -41,7 +41,7 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
         binding.button2.setOnClickListener(this)
         launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
                 result->
-            if (result.resultCode == 100) {
+            if (result.resultCode == RESULT_OK) {
                 val data: Intent? = result.data
                 // 处理返回数据
                 val returnedValue = data?.getStringExtra("key_name")
@@ -63,8 +63,18 @@ class LifeActivity : AppCompatActivity(),View.OnClickListener {
 
         binding.open1.setOnClickListener {
 
+            //打开系统应用
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.baidu.com"))
             startActivity(intent)
+
+        }
+        binding.open4.setOnClickListener {
+            //利用intent传对象
+            val s = Student("张三",18,"99")
+            val intent2 = Intent(this,ProgressBarActivity::class.java).apply {
+                putExtra("key",s)
+            }
+            startActivity(intent2)
         }
 
         binding.open2.setOnClickListener {

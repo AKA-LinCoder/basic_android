@@ -60,5 +60,11 @@
         android:layout_height="wrap_content"
         android:text="带结果返回activity"
         />
+    <Button
+        android:id="@+id/open4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="传递对象"
+        />
 
 </LinearLayout>
