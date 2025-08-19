@@ -30,7 +30,7 @@ class BaseActivity : AppCompatActivity() {
 
     private fun initDate() {
 
-        for (i in 0..9){
+        for (i in 0..20){
             val stu = Student("mike$i",i,(i*100).toString())
             studentList.add(stu)
         }

@@ -1,6 +1,7 @@
 package com.echo.basicleaning.demo.component
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,10 +31,28 @@ class MyAdapter(
 
     //每个视图出现时都会执行
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view = LayoutInflater.from(context).inflate(R.layout.item1,null)
+        val view: View
+        val viewHolder: ViewHolder
+
+        ///优化1，利用进入recyclerbin中的view,减少对view的赋值
+        if (convertView == null) {
+            Log.e("TAG","创建-------$position")
+            view = LayoutInflater.from(context).inflate(R.layout.item1, parent, false)
+            viewHolder = ViewHolder(view)
+            view.tag = viewHolder
+        } else {
+            view = convertView
+            viewHolder = view.tag as ViewHolder
+        }
+
         val stu = studentList[position]
-        val nickName = view.findViewById<TextView>(R.id.nickname)
-        nickName.text = stu.name
+        viewHolder.nickName.text = stu.name
+
         return view
     }
+
+    private class ViewHolder(view: View) {
+        val nickName: TextView = view.findViewById(R.id.nickname)
+    }
+
 }
