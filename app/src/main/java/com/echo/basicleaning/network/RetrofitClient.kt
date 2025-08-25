@@ -1,5 +1,6 @@
 package com.echo.basicleaning.network
 
+import com.echo.basicleaning.BuildConfig
 import com.echo.basicleaning.api.ApiService
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
