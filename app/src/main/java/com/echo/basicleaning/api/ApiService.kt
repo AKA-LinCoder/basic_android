@@ -1,34 +1,12 @@
-package com.echo.basicleaning.api
-
-import com.echo.basicleaning.data.ApiResponse
-import com.echo.basicleaning.data.News
-import com.echo.basicleaning.data.TabData
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
+// ApiService.kt
+import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Query
 
 interface ApiService {
+    @POST("api/user/login")
+    suspend fun login(@Body loginRequest: LoginRequest): Response<LoginResponse>
 
-    @GET("news/list")
-    suspend fun getNewsList(
-        @Query("category") category: String,
-        @Query("page") page: Int = 1,
-        @Query("size") size: Int = 20
-    ): ApiResponse<List<News>>
-
-    @GET("tabs")
-    suspend fun getTabList(): ApiResponse<List<TabData>>
-
-    @POST("news/{id}/like")
-    suspend fun likeNews(@Path("id") id: Int): ApiResponse<Boolean>
-
-    @FormUrlEncoded
-    @POST("user/login")
-    suspend fun login(
-        @Field("username") username: String,
-        @Field("password") password: String
-    ): ApiResponse<News>
+    @POST("api/user/login")
+    suspend fun trueLogin(@Body loginRequest: Login): Response<LoginResponse>
 }
